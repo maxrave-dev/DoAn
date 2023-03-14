@@ -112,7 +112,7 @@ def main():
     map = Map(cities, distances)
     # Khởi tạo thuật toán
     initial_temperature = 100
-    cooling_factor = 0.5
+    cooling_factor = 0.95
     sa = SimulatedAnnealing(map, initial_temperature, cooling_factor)
     # Giải bài toán
     best_solution = sa.solve()
@@ -120,7 +120,7 @@ def main():
     print("Chi phí tốt nhất:", sa.cost(best_solution))
     # Hiển thị kết quả
     data = sa.result
-    table = tabulate(data, headers=['Vòng lặp', 'Nhiệt độ', 'Giải pháp', 'Chi phí'], tablefmt='grid', floatfmt=".8f")
+    table = tabulate(data, headers=['Vòng lặp', 'Nhiệt độ', 'Giải pháp', 'Chi phí'], tablefmt='grid', floatfmt=".10f")
     print(table)
 if __name__ == "__main__":
     main()
